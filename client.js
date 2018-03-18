@@ -12,13 +12,17 @@ program
     .description('Torrent search client');
 
 program
-    .command('search <query>')
+    .command('search [options] <query>')
     .alias('s')
     .description('search for torrents')
-    .action((query) => {
-        torrentSearch.search(query, 'Movies', 20)
+    .option('-c --category <category>', 'Which search category to use')
+    .option('-l --limit <limit>', 'Maximum Number of returned results')
+    .action((query, options) => {
+        var category = options.category || "All";
+        var limit = options.limit || '20';
+        torrentSearch.search(query, category, limit)
             .then(torrents => {
-                console.log(torrents);
+                console.table(torrents);
             })
             .catch(err => {
                 console.log(err);
@@ -32,7 +36,7 @@ program
     .action(() => {
         //getProviderList();
         // Get providers
-        console.log(torrentSearch.getProviders());
+        console.table(torrentSearch.getProviders());
     });
 
 program.parse(process.argv)
