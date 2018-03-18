@@ -1,13 +1,15 @@
 {
-  "name": "torrent-client",
-  "version": "1.0.0",
-  "description": "A command-line torrent search client",
-  "main": "client.js",
-  "author": "jfallaire",
-  "license": "MIT",
-  "dependencies": {
-    "commander": "^2.14.1",
-    "inquirer": "^5.1.0",
-    "torrent-search-api": "^1.0.27"
-  }
+    "name": "torrent-client",
+    "version": "1.0.0",
+    "description": "A command-line torrent search client",
+    "main": "client.js",
+    "author": "jfallaire",
+    "license": "MIT",
+    "preferGlobal": true,
+    "bin": "./client.js",
+    "dependencies": {
+        "commander": "^2.14.1",
+        "inquirer": "^5.1.0",
+        "torrent-search-api": "^1.0.27"
+    }
 }
