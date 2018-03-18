@@ -12,7 +12,7 @@ program
     .description('Torrent search client');
 
 program
-    .command('search [options] <query>')
+    .command('search <query>')
     .alias('s')
     .description('search for torrents')
     .option('-c, --category [category]', 'Which search category to use')
